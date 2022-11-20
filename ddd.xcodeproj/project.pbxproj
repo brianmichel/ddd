@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		728D4189292A6DAA00479D92 /* DDDMacApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D4188292A6DAA00479D92 /* DDDMacApplicationDelegate.swift */; };
+		728D418B292A752000479D92 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D418A292A752000479D92 /* ItemView.swift */; };
 		72B4801529283D3900E024B7 /* dddApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4801429283D3900E024B7 /* dddApp.swift */; };
-		72B4801729283D3900E024B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4801629283D3900E024B7 /* ContentView.swift */; };
+		72B4801729283D3900E024B7 /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4801629283D3900E024B7 /* ItemsView.swift */; };
 		72B4801929283D3A00E024B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72B4801829283D3A00E024B7 /* Assets.xcassets */; };
 		72B4801C29283D3A00E024B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72B4801B29283D3A00E024B7 /* Preview Assets.xcassets */; };
 		72B4802729283D3A00E024B7 /* dddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4802629283D3A00E024B7 /* dddTests.swift */; };
 		72B4803129283D3A00E024B7 /* dddUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4803029283D3A00E024B7 /* dddUITests.swift */; };
 		72B4803329283D3A00E024B7 /* dddUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4803229283D3A00E024B7 /* dddUITestsLaunchTests.swift */; };
+		72B4804129283E6900E024B7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 72B4804029283E6900E024B7 /* ComposableArchitecture */; };
+		72B4804329283E6900E024B7 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 72B4804229283E6900E024B7 /* Dependencies */; };
+		72B4804A2928404D00E024B7 /* DDDCore in Frameworks */ = {isa = PBXBuildFile; productRef = 72B480492928404D00E024B7 /* DDDCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		72B4801129283D3900E024B7 /* ddd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ddd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		728D4188292A6DAA00479D92 /* DDDMacApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDDMacApplicationDelegate.swift; sourceTree = "<group>"; };
+		728D418A292A752000479D92 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		72B4801129283D3900E024B7 /* DDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B4801429283D3900E024B7 /* dddApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dddApp.swift; sourceTree = "<group>"; };
-		72B4801629283D3900E024B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		72B4801629283D3900E024B7 /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		72B4801829283D3A00E024B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72B4801B29283D3A00E024B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		72B4801D29283D3A00E024B7 /* ddd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ddd.entitlements; sourceTree = "<group>"; };
@@ -45,6 +52,7 @@
 		72B4802C29283D3A00E024B7 /* dddUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dddUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B4803029283D3A00E024B7 /* dddUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dddUITests.swift; sourceTree = "<group>"; };
 		72B4803229283D3A00E024B7 /* dddUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dddUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		72B4804729283FF400E024B7 /* DDDCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DDDCore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B4804A2928404D00E024B7 /* DDDCore in Frameworks */,
+				72B4804129283E6900E024B7 /* ComposableArchitecture in Frameworks */,
+				72B4804329283E6900E024B7 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,17 +86,19 @@
 		72B4800829283D3900E024B7 = {
 			isa = PBXGroup;
 			children = (
+				72B4804729283FF400E024B7 /* DDDCore */,
 				72B4801329283D3900E024B7 /* ddd */,
 				72B4802529283D3A00E024B7 /* dddTests */,
 				72B4802F29283D3A00E024B7 /* dddUITests */,
 				72B4801229283D3900E024B7 /* Products */,
+				72B480482928404D00E024B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		72B4801229283D3900E024B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				72B4801129283D3900E024B7 /* ddd.app */,
+				72B4801129283D3900E024B7 /* DDD.app */,
 				72B4802229283D3A00E024B7 /* dddTests.xctest */,
 				72B4802C29283D3A00E024B7 /* dddUITests.xctest */,
 			);
@@ -95,11 +108,13 @@
 		72B4801329283D3900E024B7 /* ddd */ = {
 			isa = PBXGroup;
 			children = (
+				728D4188292A6DAA00479D92 /* DDDMacApplicationDelegate.swift */,
 				72B4801429283D3900E024B7 /* dddApp.swift */,
-				72B4801629283D3900E024B7 /* ContentView.swift */,
+				72B4801629283D3900E024B7 /* ItemsView.swift */,
 				72B4801829283D3A00E024B7 /* Assets.xcassets */,
 				72B4801D29283D3A00E024B7 /* ddd.entitlements */,
 				72B4801A29283D3A00E024B7 /* Preview Content */,
+				728D418A292A752000479D92 /* ItemView.swift */,
 			);
 			path = ddd;
 			sourceTree = "<group>";
@@ -129,12 +144,19 @@
 			path = dddUITests;
 			sourceTree = "<group>";
 		};
+		72B480482928404D00E024B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		72B4801029283D3900E024B7 /* ddd */ = {
+		72B4801029283D3900E024B7 /* DDD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 72B4803629283D3A00E024B7 /* Build configuration list for PBXNativeTarget "ddd" */;
+			buildConfigurationList = 72B4803629283D3A00E024B7 /* Build configuration list for PBXNativeTarget "DDD" */;
 			buildPhases = (
 				72B4800D29283D3900E024B7 /* Sources */,
 				72B4800E29283D3900E024B7 /* Frameworks */,
@@ -144,9 +166,14 @@
 			);
 			dependencies = (
 			);
-			name = ddd;
+			name = DDD;
+			packageProductDependencies = (
+				72B4804029283E6900E024B7 /* ComposableArchitecture */,
+				72B4804229283E6900E024B7 /* Dependencies */,
+				72B480492928404D00E024B7 /* DDDCore */,
+			);
 			productName = ddd;
-			productReference = 72B4801129283D3900E024B7 /* ddd.app */;
+			productReference = 72B4801129283D3900E024B7 /* DDD.app */;
 			productType = "com.apple.product-type.application";
 		};
 		72B4802129283D3A00E024B7 /* dddTests */ = {
@@ -217,11 +244,14 @@
 				Base,
 			);
 			mainGroup = 72B4800829283D3900E024B7;
+			packageReferences = (
+				72B4803F29283E6900E024B7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 72B4801229283D3900E024B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				72B4801029283D3900E024B7 /* ddd */,
+				72B4801029283D3900E024B7 /* DDD */,
 				72B4802129283D3A00E024B7 /* dddTests */,
 				72B4802B29283D3A00E024B7 /* dddUITests */,
 			);
@@ -259,8 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72B4801729283D3900E024B7 /* ContentView.swift in Sources */,
+				72B4801729283D3900E024B7 /* ItemsView.swift in Sources */,
+				728D4189292A6DAA00479D92 /* DDDMacApplicationDelegate.swift in Sources */,
 				72B4801529283D3900E024B7 /* dddApp.swift in Sources */,
+				728D418B292A752000479D92 /* ItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,12 +318,12 @@
 /* Begin PBXTargetDependency section */
 		72B4802429283D3A00E024B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 72B4801029283D3900E024B7 /* ddd */;
+			target = 72B4801029283D3900E024B7 /* DDD */;
 			targetProxy = 72B4802329283D3A00E024B7 /* PBXContainerItemProxy */;
 		};
 		72B4802E29283D3A00E024B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 72B4801029283D3900E024B7 /* ddd */;
+			target = 72B4801029283D3900E024B7 /* DDD */;
 			targetProxy = 72B4802D29283D3A00E024B7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -548,7 +580,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		72B4803629283D3A00E024B7 /* Build configuration list for PBXNativeTarget "ddd" */ = {
+		72B4803629283D3A00E024B7 /* Build configuration list for PBXNativeTarget "DDD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				72B4803729283D3A00E024B7 /* Debug */,
@@ -576,6 +608,34 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		72B4803F29283E6900E024B7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		72B4804029283E6900E024B7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72B4803F29283E6900E024B7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		72B4804229283E6900E024B7 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72B4803F29283E6900E024B7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
+		72B480492928404D00E024B7 /* DDDCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DDDCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 72B4800929283D3900E024B7 /* Project object */;
 }
