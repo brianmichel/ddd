@@ -16,6 +16,24 @@ enum ItemsListFilter {
     case notUrgentAndImportant
     case notUrgentAndNotImportant
 
+    var important: Bool {
+        switch self {
+        case .all, .urgentAndImportant, .notUrgentAndImportant:
+            return true
+        default:
+            return false
+        }
+    }
+
+    var urgent: Bool {
+        switch self {
+        case .all, .urgentAndImportant, .urgentAndNotImportant:
+            return true
+        default:
+            return false
+        }
+    }
+
     func included(_ item: Item) -> Bool {
         switch self {
         case .all:
@@ -40,17 +58,25 @@ struct ItemsList: View {
 
     var body: some View {
         WithViewStore(store) { viewStore in
-            ScrollView {
-                ForEach(viewStore.items.filter({ filter.included($0) })) { item in
-                    let isEditing = viewStore.editingItem == item.id
-                    ItemView(item: item, showMetadata: showMetadata, expanded: isEditing)
-                        .onTapGesture(count: 2) {
-                            let action: Items.Action = isEditing ? .stopEditingItem : .startEditingItem(item)
-                            viewStore.send(action, animation: .easeInOut(duration: 0.2))
-                        }
-                        .opacity(opacticyForNonEditingItems(currentEditingItem: isEditing))
+            ZStack {
+                ScrollView {
+                    ForEach(viewStore.items.filter({ filter.included($0) })) { item in
+                        let isEditing = viewStore.editingItem == item.id
+                        ItemView(item: item, viewStore: viewStore, showMetadata: showMetadata, expanded: isEditing)
+                            .onTapGesture(count: 2) {
+                                let action: Items.Action = isEditing ? .stopEditingItem(item) : .startEditingItem(item)
+                                viewStore.send(action, animation: .easeInOut(duration: 0.2))
+                            }
+                            .opacity(opacticyForNonEditingItems(currentEditingItem: isEditing))
+                    }
+                    .padding(10)
                 }
-                .padding(10)
+            }
+            .onTapGesture(count: 2) {
+                viewStore.send(.startCreatingNewItem(filter.important, filter.urgent), animation: .easeIn(duration: 0.2))
+            }
+            .onTapGesture(count: 1) {
+                viewStore.send(.closeEditingItem, animation: .easeIn(duration: 0.2))
             }
         }
     }

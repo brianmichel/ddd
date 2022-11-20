@@ -23,13 +23,16 @@ public struct Items: ReducerProtocol {
         case updateItem(Item)
         case removeItem(Item)
         case startEditingItem(Item)
-        case stopEditingItem
+        case stopEditingItem(Item)
+        case closeEditingItem
+        case startCreatingNewItem(Bool, Bool)
     }
 
     public struct State: Equatable {
         public var items: IdentifiedArrayOf<Item> = []
 
         public var editingItem: UUID?
+        public var placeholderItem: UUID?
 
         public init(items: IdentifiedArrayOf<Item>) {
             self.items = items
@@ -53,7 +56,31 @@ public struct Items: ReducerProtocol {
             case let .startEditingItem(item):
                 state.editingItem = item.id
                 return .none
-            case .stopEditingItem:
+            case let .stopEditingItem(item):
+                if item.id == state.placeholderItem {
+                    // Clean up placeholder item by removing it
+                    state.items.remove(id: item.id)
+                    state.placeholderItem = nil
+                }
+                state.editingItem = nil
+                return .none
+            case let .startCreatingNewItem(important, urgent):
+                guard state.editingItem == nil else { return .none }
+                let item = Item(id: UUID(), title: "", urgent: urgent, important: important)
+                state.placeholderItem = item.id
+                state.editingItem = item.id
+
+                state.items.append(item)
+
+                return .none
+            case .closeEditingItem:
+                if let placeholder = state.placeholderItem {
+                    let item = state.items[id: placeholder]
+                    if let item = state.items[id: placeholder], item.title.isEmpty {
+                        state.items.remove(id: placeholder)
+                    }
+                    state.placeholderItem = nil
+                }
                 state.editingItem = nil
                 return .none
             }
