@@ -14,8 +14,7 @@ struct dddApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ItemsView(store: delegate.store.scope(state: \.items,
-                                                  action: Application.Action.items))
+            ApplicationView(store: delegate.store)
         }
     }
 }

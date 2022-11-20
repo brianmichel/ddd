@@ -7,6 +7,7 @@ public struct Item: Equatable, Identifiable, Hashable {
     public var title: String
     public var urgent: Bool
     public var important: Bool
+    public var created: Date = Date()
 
     public init(id: UUID, title: String, urgent: Bool, important: Bool) {
         self.id = id
@@ -21,10 +22,14 @@ public struct Items: ReducerProtocol {
         case addItem(Item)
         case updateItem(Item)
         case removeItem(Item)
+        case startEditingItem(Item)
+        case stopEditingItem
     }
 
     public struct State: Equatable {
-        public var items: IdentifiedArrayOf<Item>
+        public var items: IdentifiedArrayOf<Item> = []
+
+        public var editingItem: UUID?
 
         public init(items: IdentifiedArrayOf<Item>) {
             self.items = items
@@ -45,6 +50,12 @@ public struct Items: ReducerProtocol {
             case let .removeItem(item):
                 state.items.remove(id: item.id)
                 return .none
+            case let .startEditingItem(item):
+                state.editingItem = item.id
+                return .none
+            case .stopEditingItem:
+                state.editingItem = nil
+                return .none
             }
         }
     }
@@ -53,10 +64,22 @@ public struct Items: ReducerProtocol {
 public extension Items.State {
     static var mock: Self {
         return .init(items: [
-            Item(id: UUID(), title: "Urgent & Important", urgent: true, important: true),
-            Item(id: UUID(), title: "Urgent & Not Important", urgent: true, important: false),
-            Item(id: UUID(), title: "Important & Not Urgent", urgent: false, important: true),
-            Item(id: UUID(), title: "Not Important & Not Urgent", urgent: false, important: false)
+            Item(id: UUID(),
+                 title: "Urgent & Important",
+                 urgent: true,
+                 important: true),
+            Item(id: UUID(),
+                 title: "Urgent & Not Important",
+                 urgent: true,
+                 important: false),
+            Item(id: UUID(),
+                 title: "Important & Not Urgent",
+                 urgent: false,
+                 important: true),
+            Item(id: UUID(),
+                 title: "Not Important & Not Urgent",
+                 urgent: false,
+                 important: false)
         ])
     }
 }
