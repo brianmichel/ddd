@@ -36,7 +36,7 @@ struct ApplicationView: View {
 
                 switch selected.section {
                 case .allItems:
-                    AllItemsView(store: scoped)
+                    GridView(store: scoped)
                 case .divider:
                     EmptyView()
                 default:
