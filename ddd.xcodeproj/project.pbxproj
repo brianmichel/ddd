@@ -51,6 +51,7 @@
 		728D4193292AC4B300479D92 /* FilteredItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredItemsView.swift; sourceTree = "<group>"; };
 		728D4196292AD14C00479D92 /* SidebarMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarMenuItem.swift; sourceTree = "<group>"; };
 		728D4199292ADAC800479D92 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		728D419C292B06AD00479D92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DDD/Info.plist; sourceTree = "<group>"; };
 		72B4801129283D3900E024B7 /* DDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B4801429283D3900E024B7 /* DDDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDDApp.swift; sourceTree = "<group>"; };
 		72B4801629283D3900E024B7 /* AllItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemsView.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		72B4800829283D3900E024B7 = {
 			isa = PBXGroup;
 			children = (
+				728D419C292B06AD00479D92 /* Info.plist */,
 				72B4804729283FF400E024B7 /* DDDCore */,
 				72B4801329283D3900E024B7 /* ddd */,
 				72B4802529283D3A00E024B7 /* dddTests */,
@@ -500,6 +502,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DDD/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,6 +530,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DDD/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
