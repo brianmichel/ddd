@@ -59,7 +59,7 @@ struct GridView: View {
                 }
                 .padding(3)
             }
-
+            .navigationTitle("All Items")
         }
     }
 }

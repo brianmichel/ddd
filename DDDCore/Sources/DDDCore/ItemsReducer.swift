@@ -5,13 +5,15 @@ public struct Item: Equatable, Identifiable, Hashable {
     public var id: UUID
 
     public var title: String
+    public var notes: String
     public var urgent: Bool
     public var important: Bool
     public var created: Date = Date()
 
-    public init(id: UUID, title: String, urgent: Bool, important: Bool) {
+    public init(id: UUID, title: String, notes: String = "Test Notes", urgent: Bool, important: Bool) {
         self.id = id
         self.title = title
+        self.notes = notes
         self.urgent = urgent
         self.important = important
     }

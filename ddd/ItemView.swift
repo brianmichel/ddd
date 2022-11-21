@@ -31,6 +31,7 @@ struct ItemView: View {
         self.expanded = expanded
 
         _itemTitle = State(initialValue: item.title)
+        _itemDescription = State(initialValue: item.notes)
     }
 
     var body: some View {

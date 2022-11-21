@@ -22,7 +22,6 @@ struct AllItemsView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             ItemsList(store: store, showMetadata: showMetadata)
-                .navigationTitle("All Items")
                 .toolbar {
                     ToolbarItem {
                         Toggle(isOn: $showMetadata.animation(.easeIn(duration: 0.2))) {
