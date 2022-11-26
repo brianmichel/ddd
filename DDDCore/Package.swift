@@ -11,23 +11,43 @@ let package = Package(
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "DDDCore",
-            targets: ["DDDCore"]),
+        .singleNameLibrary(name: "DDDCore"),
+        .singleNameLibrary(name: "Models"),
+        .singleNameLibrary(name: "DatabaseClient")
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", branch: "main")
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", branch: "main"),
+        .package(url: "https://github.com/groue/GRDB.swift.git", branch: "master")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
+            name: "DatabaseClient",
+            dependencies: [
+                .product(name: "GRDB", package: "GRDB.swift"),
+                .product(name: "Dependencies", package: "swift-composable-architecture"),
+                "Models"
+            ]),
+        .target(
             name: "DDDCore",
             dependencies: [
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                "DatabaseClient",
+                "Models"
             ]),
+        .target(
+            name: "Models",
+            dependencies: []
+        ),
         .testTarget(
             name: "DDDCoreTests",
             dependencies: ["DDDCore"]),
     ]
 )
+
+extension Product {
+    static func singleNameLibrary(name: String) -> Product {
+        return .library(name: name, targets: [name])
+    }
+}

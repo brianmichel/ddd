@@ -48,6 +48,8 @@ struct ApplicationView: View {
         }
         .onAppear() {
             selectedItem = menuItems.first
+            let vs = ViewStore(store)
+            vs.send(.items(.fetchAll))
         }
     }
 }

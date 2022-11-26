@@ -1,26 +1,12 @@
 import ComposableArchitecture
+import DatabaseClient
 import Foundation
-
-public struct Item: Equatable, Identifiable, Hashable {
-    public var id: UUID
-
-    public var title: String
-    public var notes: String
-    public var urgent: Bool
-    public var important: Bool
-    public var created: Date = Date()
-
-    public init(id: UUID, title: String, notes: String = "Test Notes", urgent: Bool, important: Bool) {
-        self.id = id
-        self.title = title
-        self.notes = notes
-        self.urgent = urgent
-        self.important = important
-    }
-}
+import Models
 
 public struct Items: ReducerProtocol {
     public enum Action: Equatable {
+        case fetchAll
+        case fetchAllResponse(TaskResult<[Item]?>)
         case addItem(Item)
         case updateItem(Item)
         case removeItem(Item)
@@ -41,20 +27,41 @@ public struct Items: ReducerProtocol {
         }
     }
 
+    @Dependency(\.itemsDB) var itemsDB
+
     public init() {}
 
     public var body: some ReducerProtocolOf<Self> {
         Reduce { state, action in
             switch action {
+            case .fetchAll:
+                return .task {
+                    await .fetchAllResponse(
+                        TaskResult(catching: {
+                            try await itemsDB.all()
+                        })
+                    )
+                }
+            case let .fetchAllResponse(.success(result)):
+                if let items = result {
+                    state.items = IdentifiedArray(uniqueElements: items)
+                }
+                return .none
             case let .addItem(item):
                 state.items.append(item)
-                return .none
+                return .fireAndForget {
+                    try? await itemsDB.insert(item)
+                }
             case let .updateItem(item):
                 state.items[id: item.id] = item
-                return .none
+                return .fireAndForget {
+                    try? await itemsDB.update(item)
+                }
             case let .removeItem(item):
                 state.items.remove(id: item.id)
-                return .none
+                return .fireAndForget {
+                    try? await itemsDB.delete(item)
+                }
             case let .startEditingItem(item):
                 state.editingItem = item.id
                 return .none
@@ -76,16 +83,25 @@ public struct Items: ReducerProtocol {
 
                 return .none
             case .closeEditingItem:
-                if let placeholder = state.placeholderItem {
-                    let item = state.items[id: placeholder]
-                    if let item = state.items[id: placeholder], item.title.isEmpty {
+                var effects: [EffectPublisher<Items.Action, Never>] = []
+                // If we were editing an new, pending item it could be the placeholder
+                if let placeholder = state.placeholderItem,
+                    let item = state.items[id: placeholder] {
+                    // If there's an item for the placeholder and it's title is empty, delete it
+                    if item.title.isEmpty {
                         state.items.remove(id: placeholder)
                     }
                     state.placeholderItem = nil
+                    effects.append(.fireAndForget {
+                        try? await itemsDB.insert(item)
+                    })
                 }
                 state.editingItem = nil
+                return .merge(effects)
+            case .fetchAllResponse:
                 return .none
             }
+            
         }
     }
 }

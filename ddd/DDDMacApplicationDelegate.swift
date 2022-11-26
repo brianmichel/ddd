@@ -11,5 +11,5 @@ import DDDCore
 import Foundation
 
 final class DDDMacApplicationDelegate: NSObject, NSApplicationDelegate {
-    let store = Store(initialState: Application.State(items: .mock), reducer: Application())
+    let store = Store(initialState: Application.State(items: .init(items: [])), reducer: Application())
 }

@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import DDDCore
+import Models
 import SwiftUI
 
 struct ItemView: View {
@@ -31,7 +32,7 @@ struct ItemView: View {
         self.expanded = expanded
 
         _itemTitle = State(initialValue: item.title)
-        _itemDescription = State(initialValue: item.notes)
+        _itemDescription = State(initialValue: item.notes ?? "")
     }
 
     var body: some View {

@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import DDDCore
+import Models
 import SwiftUI
 
 enum ItemsListFilter {
