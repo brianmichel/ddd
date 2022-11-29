@@ -1,61 +1,61 @@
 {
   "images" : [
     {
-      "filename" : "Large iOS Icon16w.png",
+      "filename" : "icon_512x512@2x16w.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
-      "filename" : "Large iOS Icon32w.png",
+      "filename" : "icon_512x512@2x32w 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
-      "filename" : "Large iOS Icon32w 1.png",
+      "filename" : "icon_512x512@2x32w.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "Large iOS Icon64w.png",
+      "filename" : "icon_512x512@2x64w.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
-      "filename" : "Large iOS Icon128w.png",
+      "filename" : "icon_512x512@2x128w.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "filename" : "Large iOS Icon256w.png",
+      "filename" : "icon_512x512@2x256w 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
-      "filename" : "Large iOS Icon256w 1.png",
+      "filename" : "icon_512x512@2x256w.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
-      "filename" : "Large iOS Icon512w.png",
+      "filename" : "icon_512x512@2x512w 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
-      "filename" : "Large iOS Icon512w 1.png",
+      "filename" : "icon_512x512@2x512w.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "Large iOS Icon1024w.png",
+      "filename" : "icon_512x512@2x1024w.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
