@@ -40,13 +40,13 @@ enum ItemsListFilter {
         case .all:
             return true
         case .urgentAndImportant:
-            return item.urgent && item.important
+            return item.urgent && item.important && !item.completed
         case .urgentAndNotImportant:
-            return item.urgent && !item.important
+            return item.urgent && !item.important && !item.completed
         case .notUrgentAndImportant:
-            return !item.urgent && item.important
+            return !item.urgent && item.important && !item.completed
         case .notUrgentAndNotImportant:
-            return !item.urgent && !item.important
+            return !item.urgent && !item.important && !item.completed
         }
     }
 }

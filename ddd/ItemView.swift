@@ -23,6 +23,7 @@ struct ItemView: View {
 
     @State private var itemDescription = ""
     @State private var itemTitle = ""
+    @State private var completed = false
     @FocusState private var focusedField: FocusedField?
 
     init(item: Item, viewStore: ViewStoreOf<Items>, showMetadata: Bool = false, expanded: Bool = false) {
@@ -33,13 +34,16 @@ struct ItemView: View {
 
         _itemTitle = State(initialValue: item.title)
         _itemDescription = State(initialValue: item.notes ?? "")
+        _completed = State(initialValue: item.completed)
     }
 
     var body: some View {
         VStack {
             HStack {
-                HStack(spacing: 2) {
-                    if showMetadata || expanded {
+                Toggle(isOn: $completed, label: {})
+                    .toggleStyle(.checkbox)
+                if showMetadata || expanded {
+                    HStack(spacing: 2) {
                         Button {
                             var newItem = item
                             newItem.important.toggle()
@@ -62,8 +66,9 @@ struct ItemView: View {
                         .help(urgentHelpText)
                         .buttonStyle(.plain)
                     }
+                    .foregroundColor(.primary)
+
                 }
-                .foregroundColor(.primary)
                 if expanded {
                     TextField(text: $itemTitle, prompt: nil) {
                         Text(item.title.isEmpty ? "New Item" : item.title)
@@ -114,6 +119,11 @@ struct ItemView: View {
             newItem.title = newValue
             viewStore.send(.updateItem(newItem))
         }
+        .onChange(of: completed, perform: { newValue in
+            var newItem = item
+            newItem.completed = newValue
+            viewStore.send(.updateItem(newItem))
+        })
         .onSubmit {
             viewStore.send(.closeEditingItem, animation: .easeIn(duration: 0.2))
         }

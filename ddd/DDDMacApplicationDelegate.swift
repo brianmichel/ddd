@@ -12,4 +12,8 @@ import Foundation
 
 final class DDDMacApplicationDelegate: NSObject, NSApplicationDelegate {
     let store = Store(initialState: Application.State(items: .init(items: [])), reducer: Application())
+
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        ViewStore(store).send(.items(.fetchAll))
+    }
 }

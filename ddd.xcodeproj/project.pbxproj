@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7224CF9A29364F2F00567511 /* DoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7224CF9929364F2F00567511 /* DoItemsView.swift */; };
+		727C97D2293D073C00E8B79A /* ItemsToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727C97D1293D073C00E8B79A /* ItemsToolbar.swift */; };
 		728D4189292A6DAA00479D92 /* DDDMacApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D4188292A6DAA00479D92 /* DDDMacApplicationDelegate.swift */; };
 		728D418B292A752000479D92 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D418A292A752000479D92 /* ItemView.swift */; };
 		728D418D292AB93B00479D92 /* ItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D418C292AB93B00479D92 /* ItemsList.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7224CF9929364F2F00567511 /* DoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItemsView.swift; sourceTree = "<group>"; };
+		727C97D1293D073C00E8B79A /* ItemsToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsToolbar.swift; sourceTree = "<group>"; };
 		728D4188292A6DAA00479D92 /* DDDMacApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDDMacApplicationDelegate.swift; sourceTree = "<group>"; };
 		728D418A292A752000479D92 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		728D418C292AB93B00479D92 /* ItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsList.swift; sourceTree = "<group>"; };
@@ -94,13 +98,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		728D4190292ABDCF00479D92 /* IItem Views */ = {
+		727C97D0293D072600E8B79A /* Items Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				727C97D1293D073C00E8B79A /* ItemsToolbar.swift */,
+			);
+			path = "Items Toolbar";
+			sourceTree = "<group>";
+		};
+		728D4190292ABDCF00479D92 /* Item Views */ = {
 			isa = PBXGroup;
 			children = (
 				72B4801629283D3900E024B7 /* AllItemsView.swift */,
 				728D4193292AC4B300479D92 /* FilteredItemsView.swift */,
+				7224CF9929364F2F00567511 /* DoItemsView.swift */,
 			);
-			path = "IItem Views";
+			path = "Item Views";
 			sourceTree = "<group>";
 		};
 		728D4195292AD13F00479D92 /* Sidebar */ = {
@@ -145,9 +158,10 @@
 		72B4801329283D3900E024B7 /* ddd */ = {
 			isa = PBXGroup;
 			children = (
+				727C97D0293D072600E8B79A /* Items Toolbar */,
 				728D4198292ADABD00479D92 /* Grid */,
 				728D4195292AD13F00479D92 /* Sidebar */,
-				728D4190292ABDCF00479D92 /* IItem Views */,
+				728D4190292ABDCF00479D92 /* Item Views */,
 				728D4188292A6DAA00479D92 /* DDDMacApplicationDelegate.swift */,
 				72B4801429283D3900E024B7 /* DDDApp.swift */,
 				72B4801829283D3A00E024B7 /* Assets.xcassets */,
@@ -330,9 +344,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7224CF9A29364F2F00567511 /* DoItemsView.swift in Sources */,
 				728D4197292AD14C00479D92 /* SidebarMenuItem.swift in Sources */,
 				728D418D292AB93B00479D92 /* ItemsList.swift in Sources */,
 				72B4801729283D3900E024B7 /* AllItemsView.swift in Sources */,
+				727C97D2293D073C00E8B79A /* ItemsToolbar.swift in Sources */,
 				728D4189292A6DAA00479D92 /* DDDMacApplicationDelegate.swift in Sources */,
 				72B4801529283D3900E024B7 /* DDDApp.swift in Sources */,
 				728D4194292AC4B300479D92 /* FilteredItemsView.swift in Sources */,

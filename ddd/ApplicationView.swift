@@ -35,6 +35,8 @@ struct ApplicationView: View {
                 let scoped = store.scope(state: \.items, action: Application.Action.items)
 
                 switch selected.section {
+                case .do:
+                    DoItemsView(store: scoped)
                 case .allItems:
                     GridView(store: scoped)
                 case .divider:
@@ -48,8 +50,6 @@ struct ApplicationView: View {
         }
         .onAppear() {
             selectedItem = menuItems.first
-            let vs = ViewStore(store)
-            vs.send(.items(.fetchAll))
         }
     }
 }
