@@ -16,7 +16,8 @@ let package = Package(
         .singleNameLibrary(name: "DatabaseClient")
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", branch: "main"),
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "0.53.2"),
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "0.5.0"),
         .package(url: "https://github.com/groue/GRDB.swift.git", branch: "master")
     ],
     targets: [
@@ -26,7 +27,7 @@ let package = Package(
             name: "DatabaseClient",
             dependencies: [
                 .product(name: "GRDB", package: "GRDB.swift"),
-                .product(name: "Dependencies", package: "swift-composable-architecture"),
+                .product(name: "Dependencies", package: "swift-dependencies"),
                 "Models"
             ]),
         .target(
